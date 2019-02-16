@@ -3,8 +3,8 @@
 
 Study for algorithm problems
 
-- [Baekjoon Online Judge](https://www.acmicpc.net/)
-- [SW Expert Academy](https://swexpertacademy.com/main/main.do)
+- [Baekjoon Online Judge](https://www.acmicpc.net/) (BOJ)
+- [SW Expert Academy](https://swexpertacademy.com/main/main.do) (SWEA)
 
 
 ## Contact
