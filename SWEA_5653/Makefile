@@ -1,4 +1,4 @@
-APP_NAME=swea_1953
+APP_NAME=swea_5653
 uname_S := $(shell sh -c 'uname -s 2>/dev/null || echo not')
 
 STD=-std=c++11  
