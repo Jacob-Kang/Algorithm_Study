@@ -1,7 +1,7 @@
 // https://www.acmicpc.net/problem/1504
 
 /*
- * boj_1504.cc
+ * boj_1504.cpp
  *
  *  Created on: 2019. 2. 15.
  *      Author: Chulho Kang
