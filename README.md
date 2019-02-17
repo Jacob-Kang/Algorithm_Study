@@ -1,7 +1,7 @@
 
 # Algorithm solving
 
-Study for algorithm problems
+Study for algorithm coding test
 
 - [Baekjoon Online Judge](https://www.acmicpc.net/) (BOJ)
 - [SW Expert Academy](https://swexpertacademy.com/main/main.do) (SWEA)
