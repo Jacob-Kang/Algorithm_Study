@@ -13,7 +13,7 @@ Study for algorithm coding test
 - [BOJ 1600. 말이 되고픈 원숭이](https://www.acmicpc.net/problem/1600) [BFS]
 - [BOJ 1697. 숨바꼭질](https://www.acmicpc.net/problem/1697) [BFS]
 - [BOJ 2589. 보물섬](https://www.acmicpc.net/problem/2589) [BFS]
-- [BOJ 3190. 뱀](https://www.acmicpc.net/problem/3190) [BFS]
+- [BOJ 3190. 뱀](https://www.acmicpc.net/problem/3190) [Simulation]
 - [BOJ 9328. 열쇠](https://www.acmicpc.net/problem/9328) [BFS]
 - [BOJ 14499. 주사위 굴리기](https://www.acmicpc.net/problem/14499) [Simulation]
 - [SWEA 1824. 혁진이의 프로그램 검증](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV4yLUiKDUoDFAUx&categoryId=AV4yLUiKDUoDFAUx&categoryType=CODE) [BFS]
