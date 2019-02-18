@@ -1,4 +1,4 @@
-# [SWEA_5653. [모의 SW 역량테스트] 줄기세포배양](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRJ8EKe48DFAUo&categoryId=AWXRJ8EKe48DFAUo&categoryType=CODE)
+# [SWEA 5653. [모의 SW 역량테스트] 줄기세포배양](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRJ8EKe48DFAUo&categoryId=AWXRJ8EKe48DFAUo&categoryType=CODE)
 
 
 ## How to solve

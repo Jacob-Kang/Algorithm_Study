@@ -1,4 +1,4 @@
-# [SWEA_1824. 혁진이의 프로그램 검증](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV4yLUiKDUoDFAUx&categoryId=AV4yLUiKDUoDFAUx&categoryType=CODE)
+# [SWEA 1824. 혁진이의 프로그램 검증](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV4yLUiKDUoDFAUx&categoryId=AV4yLUiKDUoDFAUx&categoryType=CODE)
 
 
 ## How to solve
