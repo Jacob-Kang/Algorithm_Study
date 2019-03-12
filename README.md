@@ -21,6 +21,7 @@ Study for algorithm coding test
 - [SWEA 1949. [모의 SW 역량테스트] 등산로 조성](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PoOKKAPIDFAUq&categoryId=AV5PoOKKAPIDFAUq&categoryType=CODE) [DFS]
 - [SWEA 1953. [모의 SW 역량테스트] 탈주범 검거](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PpLlKAQ4DFAUq&categoryId=AV5PpLlKAQ4DFAUq&categoryType=CODE) [BFS]
 - [SWEA 2105. [모의 SW 역량테스트] 디저트카페](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5VwAr6APYDFAWu&categoryId=AV5VwAr6APYDFAWu&categoryType=CODE) [DFS]
+- [SWEA 2112. [모의 SW 역량테스트] 보호 필름](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5V1SYKAaUDFAWu&categoryId=AV5V1SYKAaUDFAWu&categoryType=CODE) [DFS]
 - [SWEA 2115. [모의 SW 역량테스트] 벌꿀채취](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5V4A46AdIDFAWu&categoryId=AV5V4A46AdIDFAWu&categoryType=CODE) [DFS & DP]
 - [SWEA 2382. [모의 SW 역량테스트] 미생물 격리](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV597vbqAH0DFAVl&categoryId=AV597vbqAH0DFAVl&categoryType=CODE) [Simulation]
 - [SWEA 2383. [모의 SW 역량테스트] 점심 식사시간](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5-BEE6AK0DFAVl&categoryId=AV5-BEE6AK0DFAVl&categoryType=CODE) [DFS & Simulation]
