@@ -29,7 +29,8 @@ Study for algorithm coding test
 - [SWEA 3752. 가능한 시험 점수](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWHPkqBqAEsDFAUn&) [DP]
 - [SWEA 4012. [모의 SW 역량테스트] 요리사](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWIeUtVakTMDFAVH&categoryId=AWIeUtVakTMDFAVH&categoryType=CODE) [DFS]
 - [SWEA 5653. [모의 SW 역량테스트] 줄기세포배양](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRJ8EKe48DFAUo&categoryId=AWXRJ8EKe48DFAUo&categoryType=CODE) [Simulation]
-- [PGMS ]
+- [PGMS_42888. [2018 kakao blind recruitment] 오픈채팅방](https://www.welcomekakao.com/learn/courses/30/lessons/42888)
+- [PGMS_42889. [2018 kakao blind recruitment] 실패율](https://www.welcomekakao.com/learn/courses/30/lessons/42889)
 
 ## Contact
 Chulho Kang ([chkang0912@snu.ac.kr](mailto:chkang0912@snu.ac.kr))
