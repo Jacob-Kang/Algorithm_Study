@@ -3,277 +3,91 @@
 /*
  * swea_1953.cc
  *
- *  Created on: 2019. 2. 16.
+ *  Created on: 2019. 4. 3.
  *      Author: Chulho Kang
  */
 
-#include <memory.h>
+#include <string.h>
 #include <iostream>
 #include <queue>
-#include <vector>
-using namespace std;
+#include <string>
 
-int T, N, M, S_X, S_Y, L;
-int a[52][52];
-bool visit[52][52];
+int T, N, M, R, C, L;
 int result;
+int map[52][52];
+bool visit_map[52][52];
 
-// 0: > 1
-// 1: V 2
-// 2: < 0
-// 3: ^ 3
-
+// 0: >
+// 1: V
+// 2: <
+// 3: ^
 int d_x[4] = {1, 0, -1, 0};
 int d_y[4] = {0, 1, 0, -1};
 
-struct q_entry {
-  int x, y, depth;
-};
-std::queue<q_entry> q;
+// 1: 1 3 6 7    1 2 4 7   1 3 4 5   1 2 5 6
+// 2:            1 2 4 7             1 2 5 6
+// 3: 1 3 6 7              1 3 4 5
+// 4: 1 3 6 7                        1 2 5 6
+// 5: 1 3 6 7    1 2 4 7
+// 6:            1 2 4 7   1 3 4 5
+// 7:                      1 3 4 5   1 2 5 6
+static int able_shape[4][4] = {
+    {1, 3, 6, 7}, {1, 2, 4, 7}, {1, 3, 4, 5}, {1, 2, 5, 6}};
+static bool abel_path[8][4] = {
+    {false, false, false, false}, {true, true, true, true},
+    {false, true, false, true},   {true, false, true, false},
+    {true, false, false, true},   {true, true, false, false},
+    {false, true, true, false},   {false, false, true, true}};
 
-// 1: +  (1 3 6 7)   (1 2 4 7)   (1 3 4 5)   (1 2 5 6)
-// 2: I  ()          (1 2 4 7)   ()          (1 2 5 6)
-// 3: -  (1 3 6 7)   ()          (1 3 4 5)   ()
-// 4: ㄴ  (1 3 6 7)   ()          ()          (1 2 5 6)
-// 5: r  (1 3 6 7)   (1 2 4 7)   ()          ()
-// 6: ㄱ  ()          (1 2 4 7)   (1 3 4 5)   ()
-// 7: L/  ()          ()          (1 3 4 5)  (1 2 5 6)
-bool check_path(int x, int y, int way) {
-  if (a[y][x] == 1) {
-    switch (way) {
-      case 0:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 3 &&
-            a[y + d_y[way]][x + d_x[way]] != 6 &&
-            a[y + d_y[way]][x + d_x[way]] != 7)
-          return false;
-        else
-          return true;
-      case 1:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 2 &&
-            a[y + d_y[way]][x + d_x[way]] != 4 &&
-            a[y + d_y[way]][x + d_x[way]] != 7)
-          return false;
-        else
-          return true;
-      case 2:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 3 &&
-            a[y + d_y[way]][x + d_x[way]] != 4 &&
-            a[y + d_y[way]][x + d_x[way]] != 5)
-          return false;
-        else
-          return true;
-      case 3:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 2 &&
-            a[y + d_y[way]][x + d_x[way]] != 5 &&
-            a[y + d_y[way]][x + d_x[way]] != 6)
-          return false;
-        else
-          return true;
-      default:
-        break;
-    }
-  } else if (a[y][x] == 2) {
-    switch (way) {
-      case 0:
-        return false;
-      case 1:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 2 &&
-            a[y + d_y[way]][x + d_x[way]] != 4 &&
-            a[y + d_y[way]][x + d_x[way]] != 7)
-          return false;
-        else
-          return true;
-      case 2:
-        return false;
-      case 3:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 2 &&
-            a[y + d_y[way]][x + d_x[way]] != 5 &&
-            a[y + d_y[way]][x + d_x[way]] != 6)
-          return false;
-        else
-          return true;
-      default:
-        break;
-    }
-  } else if (a[y][x] == 3) {
-    switch (way) {
-      case 0:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 3 &&
-            a[y + d_y[way]][x + d_x[way]] != 6 &&
-            a[y + d_y[way]][x + d_x[way]] != 7)
-          return false;
-        else
-          return true;
-      case 1:
-        return false;
-      case 2:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 3 &&
-            a[y + d_y[way]][x + d_x[way]] != 4 &&
-            a[y + d_y[way]][x + d_x[way]] != 5)
-          return false;
-        else
-          return true;
-      case 3:
-        return false;
-      default:
-        break;
-    }
-  }
-  if (a[y][x] == 4) {
-    switch (way) {
-      case 0:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 3 &&
-            a[y + d_y[way]][x + d_x[way]] != 6 &&
-            a[y + d_y[way]][x + d_x[way]] != 7)
-          return false;
-        else
-          return true;
-      case 1:
-        return false;
-      case 2:
-        return false;
-      case 3:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 2 &&
-            a[y + d_y[way]][x + d_x[way]] != 5 &&
-            a[y + d_y[way]][x + d_x[way]] != 6)
-          return false;
-        else
-          return true;
-      default:
-        break;
-    }
-  } else if (a[y][x] == 5) {
-    switch (way) {
-      case 0:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 3 &&
-            a[y + d_y[way]][x + d_x[way]] != 6 &&
-            a[y + d_y[way]][x + d_x[way]] != 7)
-          return false;
-        else
-          return true;
-      case 1:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 2 &&
-            a[y + d_y[way]][x + d_x[way]] != 4 &&
-            a[y + d_y[way]][x + d_x[way]] != 7)
-          return false;
-        else
-          return true;
-      case 2:
-        return false;
-      case 3:
-        return false;
-      default:
-        break;
-    }
-  } else if (a[y][x] == 6) {
-    switch (way) {
-      case 0:
-        return false;
-      case 1:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 2 &&
-            a[y + d_y[way]][x + d_x[way]] != 4 &&
-            a[y + d_y[way]][x + d_x[way]] != 7)
-          return false;
-        else
-          return true;
-      case 2:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 3 &&
-            a[y + d_y[way]][x + d_x[way]] != 4 &&
-            a[y + d_y[way]][x + d_x[way]] != 5)
-          return false;
-        else
-          return true;
-      case 3:
-        return false;
-      default:
-        break;
-    }
-  } else if (a[y][x] == 7) {
-    switch (way) {
-      case 0:
-        return false;
-      case 1:
-        return false;
-      case 2:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 3 &&
-            a[y + d_y[way]][x + d_x[way]] != 4 &&
-            a[y + d_y[way]][x + d_x[way]] != 5)
-          return false;
-        else
-          return true;
-      case 3:
-        if (a[y + d_y[way]][x + d_x[way]] != 1 &&
-            a[y + d_y[way]][x + d_x[way]] != 2 &&
-            a[y + d_y[way]][x + d_x[way]] != 5 &&
-            a[y + d_y[way]][x + d_x[way]] != 6)
-          return false;
-        else
-          return true;
-      default:
-        break;
-    }
-  }
-  return false;
-}
-void bfs(int depth) {
-  int c_x, c_y, c_depth;
-  int temp_x, temp_y;
-  while (!q.empty()) {
-    c_x = q.front().x;
-    c_y = q.front().y;
-    c_depth = q.front().depth;
-    q.pop();
-    if (c_depth == depth - 1) {
-      continue;
-    }
-    for (int i = 0; i < 4; i++) {
-      temp_x = c_x + d_x[i];
-      temp_y = c_y + d_y[i];
-      if (temp_x >= 0 && temp_x < M && temp_y >= 0 && temp_y < N &&
-          !visit[temp_y][temp_x] && a[temp_y][temp_x] > 0 &&
-          a[temp_y][temp_x] < 8) {
-        if (check_path(c_x, c_y, i)) {
-          visit[temp_y][temp_x] = true;
-          result++;
-          q.push({temp_x, temp_y, c_depth + 1});
-        }
-      }
-    }
-  }
-}
-int main() {
+struct q_entry {
+  int x, y, shpae, depth;
+};
+std::queue<q_entry> q_step;
+
+int main(void) {
   freopen("input.txt", "r", stdin);
   scanf("%d", &T);
   for (int tc = 1; tc <= T; tc++) {
-    memset(a, 0, sizeof(a));
-    memset(visit, 0, sizeof(visit));
     result = 0;
-    scanf("%d %d %d %d %d", &N, &M, &S_Y, &S_X, &L);
+    memset(map, 0, sizeof(map));
+    memset(visit_map, 0, sizeof(visit_map));
+    while (!q_step.empty()) q_step.pop();
+    scanf("%d %d %d %d %d", &N, &M, &R, &C, &L);
     for (int i = 0; i < N; i++) {
       for (int j = 0; j < M; j++) {
-        scanf("%d", &a[i][j]);
+        scanf("%d", &map[i][j]);
       }
     }
-    if (a[S_Y][S_X] != 0) {
-      visit[S_Y][S_X] = true;
-      result = 1;
-      q.push({S_X, S_Y, 0});
-      bfs(L);
+    q_step.push({C, R, map[R][C], 1});
+    visit_map[R][C] = true;
+    result++;
+
+    int cur_x, cur_y, cur_shape, cur_depth, next_x, next_y, next_shape;
+    while (!q_step.empty()) {
+      cur_x = q_step.front().x;
+      cur_y = q_step.front().y;
+      cur_shape = q_step.front().shpae;
+      cur_depth = q_step.front().depth;
+      q_step.pop();
+      if (cur_depth == L) break;
+
+      for (int i = 0; i < 4; i++) {
+        if (!abel_path[cur_shape][i]) continue;
+        next_x = cur_x + d_x[i];
+        next_y = cur_y + d_y[i];
+        if (next_x < 0 || next_x >= M || next_y < 0 || next_y >= N ||
+            visit_map[next_y][next_x])
+          continue;
+        next_shape = map[next_y][next_x];
+        if (next_shape < 8 &&
+            (able_shape[i][0] == next_shape || able_shape[i][1] == next_shape ||
+             able_shape[i][2] == next_shape ||
+             able_shape[i][3] == next_shape)) {
+          result++;
+          visit_map[next_y][next_x] = true;
+          q_step.push({next_x, next_y, next_shape, cur_depth + 1});
+        }
+      }
     }
     printf("#%d %d\n", tc, result);
   }
