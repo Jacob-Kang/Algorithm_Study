@@ -36,6 +36,7 @@ Study for algorithm coding test
 - [SWEA 4013. [모의 SW 역량테스트] 특이한 자석](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWIeV9sKkcoDFAVH&categoryId=AWIeV9sKkcoDFAVH&categoryType=CODE) [Simulation]
 - [SWEA 4014. [모의 SW 역량테스트] 활주로 건설](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWIeW7FakkUDFAVH&categoryId=AWIeW7FakkUDFAVH&categoryType=CODE) [Simulation]
 - [SWEA 5644. [모의 SW 역량테스트] 무선 충전](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRDL1aeugDFAUo&categoryId=AWXRDL1aeugDFAUo&categoryType=CODE) [Simulation]
+- [SWEA 5650. [모의 SW 역량테스트] 핀볼 게임](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRF8s6ezEDFAUo) [Simulation]
 - [SWEA 5653. [모의 SW 역량테스트] 줄기세포배양](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRJ8EKe48DFAUo&categoryId=AWXRJ8EKe48DFAUo&categoryType=CODE) [Simulation]
 - [SWEA 5656. [모의 SW 역량테스트] 벽돌 깨기](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRQm6qfL0DFAUo) [DFS & Simulation]
 - [PGMS_42888. [2018 kakao blind recruitment] 오픈채팅방](https://www.welcomekakao.com/learn/courses/30/lessons/42888)
