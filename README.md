@@ -17,7 +17,8 @@ Study for algorithm coding test
 - [BOJ 9328. 열쇠](https://www.acmicpc.net/problem/9328) [BFS]
 - [BOJ 14499. 주사위 굴리기](https://www.acmicpc.net/problem/14499) [Simulation]
 - [BOJ 17071. 숨바꼭질5](https://www.acmicpc.net/problem/17071) [BFS]
-- [BOJ 17135. 캐슬 디펜스](https://www.acmicpc.net/problem/17135)
+- [BOJ 17135. 캐슬 디펜스](https://www.acmicpc.net/problem/17135) [Simulation]
+- [BOJ 17136. 색종이 붙이기](https://www.acmicpc.net/problem/17136) [DFS]
 - [SWEA 1767. [SW Test 샘플문제] 프로세서 연결하기](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV4suNtaXFEDFAUf) [DFS]
 - [SWEA 1824. 혁진이의 프로그램 검증](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV4yLUiKDUoDFAUx&categoryId=AV4yLUiKDUoDFAUx&categoryType=CODE) [BFS]
 - [SWEA 1949. [모의 SW 역량테스트] 등산로 조성](https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5PoOKKAPIDFAUq&categoryId=AV5PoOKKAPIDFAUq&categoryType=CODE) [DFS]
